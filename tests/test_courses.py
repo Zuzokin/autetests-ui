@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright, expect
+import pytest
 
 #Открыть страницу https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration
 #Заполнить форму регистрации и нажать на кнопку "Registration"
@@ -8,6 +9,8 @@ from playwright.sync_api import sync_playwright, expect
 #Проверить наличие и текст заголовка "Courses" 
 #Проверить наличие и текст блока "There is no results"
 
+@pytest.mark.courses
+@pytest.mark.regression
 def test_empty_courses_list(): 
     with sync_playwright() as playwright:
         # Запускаем Chromium браузер в обычном режиме (не headless)
