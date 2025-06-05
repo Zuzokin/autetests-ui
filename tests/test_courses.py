@@ -8,30 +8,31 @@ from playwright.sync_api import sync_playwright, expect
 #Проверить наличие и текст заголовка "Courses" 
 #Проверить наличие и текст блока "There is no results"
 
-with sync_playwright() as playwright:
-    # Запускаем Chromium браузер в обычном режиме (не headless)
-    browser = playwright.chromium.launch(headless=False)
-    # Создаем новый контекст браузера (новая сессия, которая изолирована от других)
-    context = browser.new_context()
-    # Открываем новую страницу в рамках контекста
-    page = context.new_page()
+def test_empty_courses_list(): 
+    with sync_playwright() as playwright:
+        # Запускаем Chromium браузер в обычном режиме (не headless)
+        browser = playwright.chromium.launch(headless=False)
+        # Создаем новый контекст браузера (новая сессия, которая изолирована от других)
+        context = browser.new_context()
+        # Открываем новую страницу в рамках контекста
+        page = context.new_page()
 
-    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
+        page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
 
-    email_input = page.get_by_test_id('registration-form-email-input').locator('input')
-    email_input.fill('user.name@gmail.com')
+        email_input = page.get_by_test_id('registration-form-email-input').locator('input')
+        email_input.fill('user.name@gmail.com')
 
-    username_input = page.get_by_test_id('registration-form-username-input').locator('input')
-    username_input.fill('username')
+        username_input = page.get_by_test_id('registration-form-username-input').locator('input')
+        username_input.fill('username')
 
-    password_input = page.get_by_test_id('registration-form-password-input').locator('input')
-    password_input.fill('password')
+        password_input = page.get_by_test_id('registration-form-password-input').locator('input')
+        password_input.fill('password')
 
-    registration_button = page.get_by_test_id('registration-page-registration-button')
-    registration_button.click()
+        registration_button = page.get_by_test_id('registration-page-registration-button')
+        registration_button.click()
 
-    # Сохраняем состояние браузера (куки и localStorage) в файл для дальнейшего использования
-    context.storage_state(path="browser-state.json")
+        # Сохраняем состояние браузера (куки и localStorage) в файл для дальнейшего использования
+        context.storage_state(path="browser-state.json")
 
 
     # Создаем новую сессию браузера с сохраненным состоянием
@@ -47,4 +48,3 @@ with sync_playwright() as playwright:
 
         # Проверяем наличие и текст блока "There is no results"
         expect(page.get_by_test_id('courses-list-empty-view-title-text')).to_have_text('There is no results')
-
