@@ -61,6 +61,7 @@ coverage.xml
 
 # VS Code
 .vscode/
+.idea/
 
 # Environments
 .env
@@ -80,4 +81,7 @@ allure-report/
 
 # System files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Project
+browser-state.json
