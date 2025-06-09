@@ -16,15 +16,15 @@ from testdata.params.courses import CourseCardParams
 
 @pytest.mark.courses
 @pytest.mark.regression
-def test_empty_courses_list(chromium_page_with_state: Page):
-    chromium_page_with_state.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
+def test_empty_courses_list(courses_list_page: CoursesListPage):
+    courses_list_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
 
-    # Проверяем наличие и текст заголовка "Courses"
-    expect(chromium_page_with_state.get_by_test_id('courses-list-toolbar-title-text')).to_have_text('Courses')
+    courses_list_page.sidebar.check_visible()
+    courses_list_page.navbar.check_visible("username")
 
-    # Проверяем наличие и текст блока "There is no results"
-    expect(chromium_page_with_state.get_by_test_id('courses-list-empty-view-title-text')).to_have_text(
-        'There is no results')
+    courses_list_page.check_visible_courses_title()
+    courses_list_page.check_visible_create_course_button()
+    courses_list_page.check_visible_empty_view()
 
 
 @pytest.mark.courses
