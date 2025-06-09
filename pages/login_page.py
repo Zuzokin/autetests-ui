@@ -7,8 +7,6 @@ class LoginPage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        self.PAGE_URL = "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login"
-
         self.email_input = page.get_by_test_id('login-form-email-input').locator('input')
         self.password_input = page.get_by_test_id('login-form-password-input').locator('input')
 
@@ -31,7 +29,7 @@ class LoginPage(BasePage):
 
     def click_registration_link(self):
         self.registration_link.click()
-        
+
     def check_visible_login_title(self):
         expect(self.login_title).to_be_visible()
 
