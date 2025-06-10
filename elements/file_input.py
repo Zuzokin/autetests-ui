@@ -6,6 +6,6 @@ class FileInput(BaseElement):
     def type_of(self) -> str:
         return "file input"
 
-    def set_input_files(self, file: str, **kwargs):
-        locator = self.get_locator(**kwargs)
+    def set_input_files(self, file: str, nth: int = 0, **kwargs):
+        locator = self.get_locator(nth, **kwargs)
         locator.set_input_files(file)
