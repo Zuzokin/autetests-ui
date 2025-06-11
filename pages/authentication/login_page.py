@@ -1,3 +1,5 @@
+import re
+
 from playwright.sync_api import Page, expect
 
 from components.authentication.login_form_component import LoginFormComponent
@@ -25,12 +27,12 @@ class LoginPage(BasePage):
         self.login_title.check_visible()
         self.login_title.check_have_text("UI Course")
 
-
     def click_login_button(self):
         self.login_button.click()
 
     def click_registration_link(self):
         self.registration_link.click()
+        self.check_current_url(re.compile(".*/#/auth/registration"))
 
     def check_visible_wrong_email_or_password_alert(self):
         self.wrong_email_or_password_alert.check_visible()
