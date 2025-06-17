@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, expect
 
 from components.base_component import BaseComponent
@@ -11,5 +12,6 @@ class DashboardToolbarViewComponent(BaseComponent):
         self.dashboard_title = Text(page, 'dashboard-toolbar-title-text', 'Dashboard Title')
 
     def check_visible(self):
-        self.dashboard_title.check_visible()
-        self.dashboard_title.check_have_text('Dashboard')
+        with allure.step('Check visible dashboard toolbar'):
+            self.dashboard_title.check_visible()
+            self.dashboard_title.check_have_text('Dashboard')

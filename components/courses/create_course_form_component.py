@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page
 
 from components.base_component import BaseComponent, expect
@@ -20,36 +21,38 @@ class CreateCourseFormComponent(BaseComponent):
             self,
             params: CourseCardParams
     ):
-        self.create_course_title_input.check_visible()
-        self.create_course_title_input.check_have_value(params.title)
+        with allure.step(f'Check visible create course form with title "{params.title}"'):
+            self.create_course_title_input.check_visible()
+            self.create_course_title_input.check_have_value(params.title)
 
-        self.create_course_estimated_time_input.check_visible()
-        self.create_course_estimated_time_input.check_have_value(params.estimated_time)
+            self.create_course_estimated_time_input.check_visible()
+            self.create_course_estimated_time_input.check_have_value(params.estimated_time)
 
-        self.create_course_description_textarea.check_visible()
-        self.create_course_description_textarea.check_have_value(params.description)
+            self.create_course_description_textarea.check_visible()
+            self.create_course_description_textarea.check_have_value(params.description)
 
-        self.create_course_max_score_input.check_visible()
-        self.create_course_max_score_input.check_have_value(params.max_score)
+            self.create_course_max_score_input.check_visible()
+            self.create_course_max_score_input.check_have_value(params.max_score)
 
-        self.create_course_min_score_input.check_visible()
-        self.create_course_min_score_input.check_have_value(params.min_score)
+            self.create_course_min_score_input.check_visible()
+            self.create_course_min_score_input.check_have_value(params.min_score)
 
     def fill(
             self,
             params: CourseCardParams
     ):
-        self.create_course_title_input.fill(params.title)
-        self.create_course_title_input.check_have_value(params.title)
+        with allure.step(f'Fill create course form with title "{params.title}"'):
+            self.create_course_title_input.fill(params.title)
+            self.create_course_title_input.check_have_value(params.title)
 
-        self.create_course_estimated_time_input.fill(params.estimated_time)
-        self.create_course_estimated_time_input.check_have_value(params.estimated_time)
+            self.create_course_estimated_time_input.fill(params.estimated_time)
+            self.create_course_estimated_time_input.check_have_value(params.estimated_time)
 
-        self.create_course_description_textarea.fill(params.description)
-        self.create_course_description_textarea.check_have_value(params.description)
+            self.create_course_description_textarea.fill(params.description)
+            self.create_course_description_textarea.check_have_value(params.description)
 
-        self.create_course_max_score_input.fill(params.max_score)
-        self.create_course_max_score_input.check_have_value(params.max_score)
+            self.create_course_max_score_input.fill(params.max_score)
+            self.create_course_max_score_input.check_have_value(params.max_score)
 
-        self.create_course_min_score_input.fill(params.min_score)
-        self.create_course_min_score_input.check_have_value(params.min_score)
+            self.create_course_min_score_input.fill(params.min_score)
+            self.create_course_min_score_input.check_have_value(params.min_score)
