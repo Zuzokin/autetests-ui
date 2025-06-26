@@ -1,18 +1,20 @@
 import allure
 from playwright.sync_api import Playwright, Page
 
-from config import settings  # Импортируем настройки
+from config import settings, Browser  # Импортируем настройки
 
 
 def initialize_playwright_page(
         playwright: Playwright,
         test_name: str,
+        browser_type: Browser,
         storage_state: str | None = None
 ) -> Page:
     # Используем settings.headless
-    browser = playwright.chromium.launch(headless=settings.headless)
+    browser = playwright[browser_type].launch(headless=settings.headless, timeout=settings.timeout)
     # Используем settings.videos_dir
-    context = browser.new_context(base_url=settings.get_base_url(), storage_state=storage_state, record_video_dir=settings.videos_dir)
+    context = browser.new_context(base_url=settings.get_base_url(), storage_state=storage_state,
+                                  record_video_dir=settings.videos_dir)
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
     page = context.new_page()
 
