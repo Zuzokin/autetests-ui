@@ -1,4 +1,5 @@
 pytest_plugins = (
     "fixtures.pages",  # Подключаем фикстуры страниц
-    "fixtures.browsers"
+    "fixtures.browsers",
+    "fixtures.allure"
 )
