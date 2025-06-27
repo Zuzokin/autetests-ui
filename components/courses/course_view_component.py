@@ -1,11 +1,10 @@
 import allure
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
 from components.courses.course_view_menu_component import CourseViewMenuItemComponent
 from elements.image import Image
 from elements.text import Text
-from testdata.params.courses import CourseCardParams
 
 
 class CourseViewComponent(BaseComponent):

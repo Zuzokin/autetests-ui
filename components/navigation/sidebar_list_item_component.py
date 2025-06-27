@@ -1,12 +1,12 @@
 from typing import Pattern
 
 import allure
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
+from elements.button import Button
 from elements.icon import Icon
 from elements.text import Text
-from elements.button import Button
 
 
 class SidebarListItemComponent(BaseComponent):

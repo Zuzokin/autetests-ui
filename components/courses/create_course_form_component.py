@@ -1,10 +1,10 @@
 import allure
 from playwright.sync_api import Page
 
-from components.base_component import BaseComponent, expect
-from testdata.params.courses import CourseCardParams
+from components.base_component import BaseComponent
 from elements.input import Input
 from elements.textarea import Textarea
+from testdata.params.courses import CourseCardParams
 
 
 class CreateCourseFormComponent(BaseComponent):

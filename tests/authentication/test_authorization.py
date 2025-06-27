@@ -21,6 +21,7 @@ TEST_DATA = {
 
 @pytest.mark.regression
 @pytest.mark.authorization
+@pytest.mark.xdist_group(name="authorization-group")
 @allure.epic(AllureEpic.LMS) # Добавили epic
 @allure.feature(AllureFeature.AUTHENTICATION) # Добавили feature
 @allure.story(AllureStory.AUTHORIZATION) # Добавили story

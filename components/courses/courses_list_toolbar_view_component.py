@@ -1,11 +1,11 @@
-import allure
 import re
 
-from playwright.sync_api import Page, expect
+import allure
+from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
-from elements.text import Text
 from elements.button import Button
+from elements.text import Text
 
 
 class CoursesListToolbarViewComponent(BaseComponent):

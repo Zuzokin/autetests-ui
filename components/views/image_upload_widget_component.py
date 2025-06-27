@@ -1,12 +1,12 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
 from components.views.empty_view_component import EmptyViewComponent
-from elements.image import Image
-from elements.icon import Icon
-from elements.text import Text
 from elements.button import Button
 from elements.file_input import FileInput
+from elements.icon import Icon
+from elements.image import Image
+from elements.text import Text
 
 
 class ImageUploadWidgetComponent(BaseComponent):

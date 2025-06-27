@@ -14,6 +14,7 @@ from config import settings
 
 @pytest.mark.regression
 @pytest.mark.registration
+@pytest.mark.xdist_group(name="authorization-group")
 @allure.epic(AllureEpic.LMS) # Добавили epic
 @allure.feature(AllureFeature.AUTHENTICATION) # Добавили feature
 @allure.story(AllureStory.REGISTRATION) # Добавили story

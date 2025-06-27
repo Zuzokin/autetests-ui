@@ -1,10 +1,9 @@
 import allure
 from playwright.sync_api import Page
 
-from components.base_component import BaseComponent, expect
-from testdata.params.courses import CourseCardParams
-from elements.text import Text
+from components.base_component import BaseComponent
 from elements.button import Button
+from elements.text import Text
 
 
 class CreateCourseToolbarViewComponent(BaseComponent):
