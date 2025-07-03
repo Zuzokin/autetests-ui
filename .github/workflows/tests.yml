@@ -41,7 +41,7 @@ jobs:
 
       # 5. Шаг для сохранения результатов тестов как артефакта
       - name: Upload Allure results as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-results
@@ -57,7 +57,7 @@ jobs:
     steps:
       # 1. Шаг для загрузки сохранённых результатов тестов
       - name: Download Allure results artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: allure-results
           path: allure-results
