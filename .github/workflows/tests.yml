@@ -45,7 +45,7 @@ jobs:
         if: always()
         with:
           name: allure-results
-          path: allure-results/  м
+          path: allure-results/
           retention-days: 1
 
   # Вторая job - публикация отчёта
