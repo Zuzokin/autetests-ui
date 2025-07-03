@@ -89,3 +89,19 @@ allure-2.34.0/
 videos/
 tracing/
 *.zip
+
+# pycharm
+.idea
+
+# python
+__pycache__
+
+# allure
+allure-results
+allure-report
+
+# testing artifacts
+*.html
+*.json
+videos
+tracing
